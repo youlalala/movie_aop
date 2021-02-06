@@ -1,0 +1,9 @@
+.Aboutwrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 50px;
+    width: 1000px;
+    margin-top: 50px;
+}

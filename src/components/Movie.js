@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 import "./Movie.css"
 
 //state가 필요하지 않음
@@ -7,6 +8,16 @@ import "./Movie.css"
 //function component로 한다
 function Movie({ id, year, title, summary, poster, genres}){
     return (
+    <Link className="movieList" to ={{
+        pathname: `/movie/${id}`,
+        state: {
+            year,
+            title,
+            summary,
+            poster,
+            genres
+        }
+    }}>
     <div className="movie">
         <img src={poster} alt={title} title={title}></img>
         <div className="movie__data">
@@ -16,7 +27,6 @@ function Movie({ id, year, title, summary, poster, genres}){
                 {genres.map( //map에 있는 각각의 item은 key가 필요하다.
                     (genre, index) => 
                     <li key={index} className="genres__genre">
-                        
                         {genre}
                     </li> 
                 )}
@@ -25,6 +35,7 @@ function Movie({ id, year, title, summary, poster, genres}){
         </div>
 
     </div>
+    </Link>
     );
 }
 
